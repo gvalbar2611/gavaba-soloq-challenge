@@ -10,44 +10,43 @@
 
   <h1>🏆 Gavaba SoloQ Challenge</h1>
 
-  <div class="board">
+  <h2>🔥 SoloQ</h2>
+  <div class="board" id="solo"></div>
 
-    <div class="row head">
-      <span>#</span>
-      <span>Jugador</span>
-      <span>Level</span>
-    </div>
-
-    <div id="players"></div>
-
-  </div>
+  <h2>⚡ Flex</h2>
+  <div class="board" id="flex"></div>
 
 <script>
 async function loadPlayers() {
   const res = await fetch("/api/lol");
   const data = await res.json();
 
-  const container = document.getElementById("players");
-  container.innerHTML = "";
+  const solo = document.getElementById("solo");
+  const flex = document.getElementById("flex");
+
+  solo.innerHTML = "";
+  flex.innerHTML = "";
 
   data.forEach((p, i) => {
 
-    const rankClass = `rank-${(p.rank || "UNRANKED").toUpperCase()}`;
-
-    const row = document.createElement("div");
-    row.className = "row";
-
-    row.innerHTML = `
+    const soloRow = document.createElement("div");
+    soloRow.className = "row";
+    soloRow.innerHTML = `
       <span>${i + 1}</span>
       <span>${p.name}</span>
-      <span>
-        <span class="rank-badge ${rankClass}">
-          ${p.rank || "UNRANKED"} ${p.lp || 0} LP
-        </span>
-      </span>
+      <span>${p.solo.rank} ${p.solo.lp} LP</span>
     `;
 
-    container.appendChild(row);
+    const flexRow = document.createElement("div");
+    flexRow.className = "row";
+    flexRow.innerHTML = `
+      <span>${i + 1}</span>
+      <span>${p.name}</span>
+      <span>${p.flex.rank} ${p.flex.lp} LP</span>
+    `;
+
+    solo.appendChild(soloRow);
+    flex.appendChild(flexRow);
   });
 }
 
