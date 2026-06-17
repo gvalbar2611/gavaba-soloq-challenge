@@ -8,7 +8,7 @@
 
 <body>
 
-  <h1>🏆 Gavaba SoloQ Challenge PRO 4</h1>
+  <h1>🏆 Gavaba SoloQ Challenge</h1>
 
   <div class="tabs">
     <button>SoloQ</button>
@@ -17,88 +17,83 @@
 
   <div class="board" id="board">
 
-    <!-- HEADER -->
     <div class="row head">
       <span>#</span>
       <span>Jugador</span>
       <span>LP</span>
     </div>
 
-    <!-- PLAYERS -->
     <div class="row" data-lp="780">
-      <span></span>
+      <span class="rank"></span>
       <span>EL BAIFO #MVP</span>
       <span class="lp">780</span>
     </div>
 
     <div class="row" data-lp="760">
-      <span></span>
+      <span class="rank"></span>
       <span>elbaifoo #mvp</span>
       <span class="lp">760</span>
     </div>
 
     <div class="row" data-lp="690">
-      <span></span>
+      <span class="rank"></span>
       <span>Guerra #SFC</span>
       <span class="lp">690</span>
     </div>
 
     <div class="row" data-lp="640">
-      <span></span>
+      <span class="rank"></span>
       <span>Wensel #777</span>
       <span class="lp">640</span>
     </div>
 
     <div class="row" data-lp="610">
-      <span></span>
+      <span class="rank"></span>
       <span>Hugo Peña #HPT</span>
       <span class="lp">610</span>
     </div>
 
     <div class="row" data-lp="590">
-      <span></span>
+      <span class="rank"></span>
       <span>Gabriel Valiente #GGB</span>
       <span class="lp">590</span>
     </div>
 
     <div class="row" data-lp="520">
-      <span></span>
+      <span class="rank"></span>
       <span>JUNGLE #CAPI</span>
       <span class="lp">520</span>
     </div>
 
     <div class="row" data-lp="430">
-      <span></span>
+      <span class="rank"></span>
       <span>Poli Sama #091</span>
       <span class="lp">430</span>
     </div>
 
     <div class="row" data-lp="380">
-      <span></span>
+      <span class="rank"></span>
       <span>PONABE ZzZ #AKN</span>
       <span class="lp">380</span>
     </div>
 
   </div>
 
-  <script>
-    const board = document.getElementById("board");
+<script>
+function sortBoard() {
+  const board = document.getElementById("board");
+  const rows = Array.from(board.querySelectorAll(".row:not(.head)"));
 
-    function sortBoard() {
-      const rows = Array.from(board.querySelectorAll(".row:not(.head)"));
+  rows.sort((a, b) => b.dataset.lp - a.dataset.lp);
 
-      rows.sort((a, b) => {
-        return parseInt(b.dataset.lp) - parseInt(a.dataset.lp);
-      });
+  rows.forEach((row, i) => {
+    row.querySelector(".rank").textContent = i + 1;
+    board.appendChild(row);
+  });
+}
 
-      rows.forEach((row, index) => {
-        row.querySelector("span").textContent = index + 1;
-        board.appendChild(row);
-      });
-    }
-
-    sortBoard();
-  </script>
+sortBoard();
+</script>
 
 </body>
 </html>
