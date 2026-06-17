@@ -2,13 +2,13 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Gavaba SoloQ Challenge PRO</title>
+  <title>Gavaba SoloQ Challenge</title>
   <link rel="stylesheet" href="./style.css">
 </head>
 
 <body>
 
-  <h1>🏆 Gavaba SoloQ Challenge PRO</h1>
+  <h1>🏆 Gavaba SoloQ Challenge</h1>
 
   <div class="tabs">
     <button>SoloQ</button>
@@ -20,73 +20,39 @@
     <div class="row head">
       <span>#</span>
       <span>Jugador</span>
-      <span>LP</span>
+      <span>Level</span>
     </div>
 
-    <div class="row challenger">
-      <span>1</span>
-      <span>EL BAIFO #MVP <small>Challenger</small></span>
-      <span>780</span>
-      <div class="bar"><div style="width:100%"></div></div>
-    </div>
-
-    <div class="row challenger">
-      <span>2</span>
-      <span>elbaifoo #mvp <small>Challenger</small></span>
-      <span>760</span>
-      <div class="bar"><div style="width:97%"></div></div>
-    </div>
-
-    <div class="row grandmaster">
-      <span>3</span>
-      <span>Guerra #SFC <small>Grandmaster</small></span>
-      <span>690</span>
-      <div class="bar"><div style="width:88%"></div></div>
-    </div>
-
-    <div class="row grandmaster">
-      <span>4</span>
-      <span>Wensel #777 <small>Grandmaster</small></span>
-      <span>640</span>
-      <div class="bar"><div style="width:82%"></div></div>
-    </div>
-
-    <div class="row master">
-      <span>5</span>
-      <span>Hugo Peña #HPT <small>Master</small></span>
-      <span>610</span>
-      <div class="bar"><div style="width:78%"></div></div>
-    </div>
-
-    <div class="row master">
-      <span>6</span>
-      <span>Gabriel Valiente #GGB <small>Master</small></span>
-      <span>590</span>
-      <div class="bar"><div style="width:75%"></div></div>
-    </div>
-
-    <div class="row diamond">
-      <span>7</span>
-      <span>JUNGLE #CAPI <small>Diamond</small></span>
-      <span>520</span>
-      <div class="bar"><div style="width:66%"></div></div>
-    </div>
-
-    <div class="row platinum">
-      <span>8</span>
-      <span>Poli Sama #091 <small>Platinum</small></span>
-      <span>430</span>
-      <div class="bar"><div style="width:55%"></div></div>
-    </div>
-
-    <div class="row gold">
-      <span>9</span>
-      <span>PONABE ZzZ #AKN <small>Gold</small></span>
-      <span>380</span>
-      <div class="bar"><div style="width:48%"></div></div>
-    </div>
+    <!-- Aquí se inyectan los datos -->
+    <div id="players"></div>
 
   </div>
+
+<script>
+async function loadPlayers() {
+  const res = await fetch("/api/lol");
+  const data = await res.json();
+
+  const container = document.getElementById("players");
+
+  container.innerHTML = "";
+
+  data.forEach((p, index) => {
+    const row = document.createElement("div");
+    row.className = "row";
+
+    row.innerHTML = `
+      <span>${index + 1}</span>
+      <span>${p.name}</span>
+      <span>${p.level}</span>
+    `;
+
+    container.appendChild(row);
+  });
+}
+
+loadPlayers();
+</script>
 
 </body>
 </html>
