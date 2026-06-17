@@ -38,47 +38,58 @@ button:hover {
   transform: scale(1.05);
 }
 
-/* TABLA */
-table {
-  width: 100%;
-  border-collapse: collapse;
-  background: #161b22;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 0 20px rgba(0,255,255,0.1);
+/* BOARD */
+.board {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
-/* HEADER */
-th {
-  background: #21262d;
+/* ROWS */
+.row {
+  display: grid;
+  grid-template-columns: 60px 1fr 80px;
+  align-items: center;
+  background: #161b22;
   padding: 15px;
-  text-align: left;
+  border-radius: 10px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* HEADER ROW */
+.head {
+  background: #21262d;
+  color: #00f5ff;
+  font-weight: bold;
+}
+
+/* LP */
+.lp {
+  text-align: right;
+  font-weight: bold;
   color: #00f5ff;
 }
 
-/* CELDAS */
-td {
-  padding: 15px;
-  border-bottom: 1px solid #30363d;
+/* BAR */
+.bar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 4px;
+  width: 100%;
+  background: transparent;
 }
 
-/* HOVER ROW */
-tr:hover {
+.bar div {
+  height: 4px;
+  background: linear-gradient(90deg, #00f5ff, #00ff88);
+  border-radius: 10px;
+}
+
+/* HOVER EFFECT */
+.row:hover {
   background: #1c2333;
-}
-
-/* EFECTO TOP 3 */
-tr:nth-child(2) td {
-  color: gold;
-  font-weight: bold;
-}
-
-tr:nth-child(3) td {
-  color: silver;
-  font-weight: bold;
-}
-
-tr:nth-child(4) td {
-  color: #cd7f32;
-  font-weight: bold;
+  transform: scale(1.01);
+  transition: 0.2s;
 }
