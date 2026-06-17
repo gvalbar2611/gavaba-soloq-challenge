@@ -27,6 +27,33 @@
   </div>
 
 <script>
+// 🧠 ranking real de LoL
+function rankValue(rank, division) {
+  const tiers = {
+    "CHALLENGER": 10,
+    "GRANDMASTER": 9,
+    "MASTER": 8,
+    "DIAMOND": 7,
+    "EMERALD": 6,
+    "PLATINUM": 5,
+    "GOLD": 4,
+    "SILVER": 3,
+    "BRONZE": 2,
+    "IRON": 1,
+    "UNRANKED": 0
+  };
+
+  const div = {
+    "I": 4,
+    "II": 3,
+    "III": 2,
+    "IV": 1,
+    "": 0
+  };
+
+  return (tiers[rank] * 10) + (div[division] || 0);
+}
+
 async function loadPlayers() {
   const res = await fetch("/api/lol");
   const data = await res.json();
@@ -37,15 +64,17 @@ async function loadPlayers() {
   solo.innerHTML = "";
   flex.innerHTML = "";
 
-  // 🔥 ORDEN SOLOQ
-  const soloSorted = [...data].sort((a, b) => b.solo.lp - a.solo.lp);
+  // 🔥 SOLOQ ORDER REAL
+  const soloSorted = [...data].sort((a, b) =>
+    rankValue(b.solo.rank, b.solo.division) - rankValue(a.solo.rank, a.solo.division)
+  );
 
-  // ⚡ ORDEN FLEX (INDEPENDIENTE)
-  const flexSorted = [...data].sort((a, b) => b.flex.lp - a.flex.lp);
+  // ⚡ FLEX ORDER REAL
+  const flexSorted = [...data].sort((a, b) =>
+    rankValue(b.flex.rank, b.flex.division) - rankValue(a.flex.rank, a.flex.division)
+  );
 
-  // SOLOQ TABLE
   soloSorted.forEach((p, i) => {
-
     const row = document.createElement("div");
     row.className = "row " + (i === 0 ? "top1" : "");
 
@@ -63,11 +92,8 @@ async function loadPlayers() {
     solo.appendChild(row);
   });
 
-  // FLEX TABLE
   flexSorted.forEach((p, i) => {
-
     const row = document.createElement("div");
-    row.className = "row";
 
     row.innerHTML = `
       <div class="pos">#${i + 1}</div>
