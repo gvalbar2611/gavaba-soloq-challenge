@@ -1,73 +1,74 @@
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  background: radial-gradient(circle at top, #0c1424, #05070f);
+  background: #0b0f19;
   color: white;
 }
 
-.title {
+/* HEADER */
+.header {
   text-align: center;
-  font-size: 34px;
-  font-weight: bold;
   padding: 25px;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.logo {
+  font-size: 28px;
+  font-weight: bold;
   color: #00e5ff;
-  text-shadow: 0 0 20px rgba(0,229,255,0.5);
 }
 
-.topbar {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-  margin-bottom: 20px;
-}
-
-.chip {
-  background: rgba(0,229,255,0.1);
-  border: 1px solid rgba(0,229,255,0.3);
-  padding: 6px 12px;
-  border-radius: 20px;
+.subtitle {
   font-size: 12px;
+  opacity: 0.6;
 }
 
-.layout {
+/* CONTAINER */
+.container {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 25px;
+  gap: 20px;
   padding: 20px;
   max-width: 1200px;
   margin: auto;
 }
 
-.card {
-  background: rgba(255,255,255,0.04);
-  border: 1px solid rgba(255,255,255,0.08);
-  border-radius: 16px;
-  padding: 15px;
-  backdrop-filter: blur(10px);
+/* PANELS */
+.panel {
+  background: #0f1624;
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 12px;
+  overflow: hidden;
 }
 
-h2 {
+.panel-title {
+  padding: 12px;
   text-align: center;
+  font-weight: bold;
+  background: rgba(0,229,255,0.08);
   color: #00e5ff;
-  margin-bottom: 15px;
 }
 
+/* TABLE */
+.table {
+  display: flex;
+  flex-direction: column;
+}
+
+/* ROW */
 .row {
   display: grid;
-  grid-template-columns: 60px 1fr 140px;
+  grid-template-columns: 60px 1fr 160px;
   padding: 12px;
-  margin-bottom: 8px;
-  border-radius: 10px;
-  background: rgba(255,255,255,0.03);
-  transition: 0.2s;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  transition: 0.15s;
 }
 
 .row:hover {
-  transform: scale(1.02);
   background: rgba(0,229,255,0.08);
 }
 
-.rank {
+.pos {
   color: #00e5ff;
   font-weight: bold;
 }
@@ -79,11 +80,11 @@ h2 {
 .lp {
   text-align: right;
   font-weight: bold;
-  color: #ffffff;
+  opacity: 0.9;
 }
 
-.top {
-  background: linear-gradient(90deg, rgba(0,229,255,0.25), transparent);
-  box-shadow: 0 0 20px rgba(0,229,255,0.2);
-  border: 1px solid rgba(0,229,255,0.4);
+/* TOP 1 */
+.top1 {
+  background: linear-gradient(90deg, rgba(0,229,255,0.15), transparent);
+  border-left: 3px solid #00e5ff;
 }
