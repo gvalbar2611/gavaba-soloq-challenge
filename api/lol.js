@@ -19,14 +19,16 @@ export default async function handler(req, res) {
 
         const accRes = await fetch(
           `https://europe.api.riotgames.com/riot/account/v1/accounts/by-riot-id/${encodeURIComponent(p.gameName)}/${encodeURIComponent(p.tagLine)}`,
-          { headers: { "X-Riot-Token": API_KEY } }
+          {
+            headers: { "X-Riot-Token": API_KEY }
+          }
         );
 
         if (!accRes.ok) {
           return {
             name: `${p.gameName}#${p.tagLine}`,
-            solo: { rank: "UNRANKED", lp: 0 },
-            flex: { rank: "UNRANKED", lp: 0 }
+            solo: { rank: "UNRANKED", division: "", lp: 0 },
+            flex: { rank: "UNRANKED", division: "", lp: 0 }
           };
         }
 
@@ -35,7 +37,9 @@ export default async function handler(req, res) {
 
         const rankRes = await fetch(
           `https://euw1.api.riotgames.com/lol/league/v4/entries/by-puuid/${puuid}`,
-          { headers: { "X-Riot-Token": API_KEY } }
+          {
+            headers: { "X-Riot-Token": API_KEY }
+          }
         );
 
         const rankData = await rankRes.json();
@@ -48,22 +52,20 @@ export default async function handler(req, res) {
 
           solo: {
             rank: soloQ ? soloQ.tier : "UNRANKED",
+            division: soloQ ? soloQ.rank : "",
             lp: soloQ ? soloQ.leaguePoints : 0
           },
 
           flex: {
             rank: flex ? flex.tier : "UNRANKED",
+            division: flex ? flex.rank : "",
             lp: flex ? flex.leaguePoints : 0
           }
         };
       })
     );
 
-    // orden por SoloQ
     results.sort((a, b) => (b.solo.lp || 0) - (a.solo.lp || 0));
-
-    // marcar TOP 1
-    if (results.length > 0) results[0].top = true;
 
     res.status(200).json(results);
 
