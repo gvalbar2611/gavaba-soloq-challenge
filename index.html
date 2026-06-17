@@ -28,7 +28,7 @@
   </div>
 
 <script>
-function rankValue(rank, division) {
+function rankValue(rank, division, lp = 0) {
   const tiers = {
     "CHALLENGER": 10,
     "GRANDMASTER": 9,
@@ -51,7 +51,7 @@ function rankValue(rank, division) {
     "": 0
   };
 
-  return (tiers[rank] * 10) + (div[division] || 0);
+  return tiers[rank] * 10000 + div[division] * 100 + lp;
 }
 
 const opggLinks = {
@@ -77,15 +77,15 @@ async function loadPlayers() {
   flex.innerHTML = "";
 
   const soloSorted = [...data].sort((a, b) =>
-    rankValue(b.solo.rank, b.solo.division) -
-    rankValue(a.solo.rank, a.solo.division)
+  rankValue(b.solo.rank, b.solo.division, b.solo.lp) -
+  rankValue(a.solo.rank, a.solo.division, a.solo.lp)
   );
 
   const flexSorted = [...data].sort((a, b) =>
-    rankValue(b.flex.rank, b.flex.division) -
-    rankValue(a.flex.rank, a.flex.division)
+  rankValue(b.flex.rank, b.flex.division, b.flex.lp) -
+  rankValue(a.flex.rank, a.flex.division, a.flex.lp)
   );
-
+  
   soloSorted.forEach((p, i) => {
     const row = document.createElement("div");
     row.className = "row " + (i === 0 ? "top1" : "");
