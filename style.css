@@ -1,70 +1,89 @@
 body {
   margin: 0;
-  background: transparent;
   font-family: Arial, sans-serif;
+  background: radial-gradient(circle at top, #0c1424, #05070f);
   color: white;
 }
 
-.header {
+.title {
   text-align: center;
-  font-size: 40px;
+  font-size: 34px;
   font-weight: bold;
-  padding: 20px;
+  padding: 25px;
   color: #00e5ff;
-  text-shadow: 0 0 20px #00e5ff;
+  text-shadow: 0 0 20px rgba(0,229,255,0.5);
 }
 
-.grid {
+.topbar {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.chip {
+  background: rgba(0,229,255,0.1);
+  border: 1px solid rgba(0,229,255,0.3);
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+}
+
+.layout {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 20px;
+  gap: 25px;
   padding: 20px;
+  max-width: 1200px;
+  margin: auto;
 }
 
-.panel {
-  background: rgba(0,0,0,0.6);
-  border: 1px solid rgba(0,229,255,0.3);
-  border-radius: 12px;
+.card {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 16px;
   padding: 15px;
   backdrop-filter: blur(10px);
 }
 
 h2 {
-  color: #00e5ff;
   text-align: center;
-  margin-bottom: 10px;
+  color: #00e5ff;
+  margin-bottom: 15px;
 }
 
 .row {
   display: grid;
-  grid-template-columns: 40px 1fr 140px;
-  padding: 10px;
-  border-bottom: 1px solid rgba(255,255,255,0.08);
+  grid-template-columns: 60px 1fr 140px;
+  padding: 12px;
+  margin-bottom: 8px;
+  border-radius: 10px;
+  background: rgba(255,255,255,0.03);
   transition: 0.2s;
 }
 
 .row:hover {
-  background: rgba(0,229,255,0.1);
   transform: scale(1.02);
+  background: rgba(0,229,255,0.08);
 }
 
 .rank {
-  font-weight: bold;
   color: #00e5ff;
+  font-weight: bold;
+}
+
+.name {
+  font-weight: bold;
 }
 
 .lp {
   text-align: right;
   font-weight: bold;
+  color: #ffffff;
 }
 
-.top1 {
-  background: linear-gradient(90deg, rgba(0,229,255,0.2), transparent);
-  box-shadow: 0 0 20px rgba(0,229,255,0.4);
-  animation: glow 1.5s infinite alternate;
-}
-
-@keyframes glow {
-  from { box-shadow: 0 0 10px rgba(0,229,255,0.3); }
-  to { box-shadow: 0 0 25px rgba(0,229,255,0.8); }
+.top {
+  background: linear-gradient(90deg, rgba(0,229,255,0.25), transparent);
+  box-shadow: 0 0 20px rgba(0,229,255,0.2);
+  border: 1px solid rgba(0,229,255,0.4);
 }
