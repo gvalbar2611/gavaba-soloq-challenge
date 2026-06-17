@@ -3,55 +3,116 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Gavaba - Live Dashboard</title>
+  <title>Gavaba - SoloQ Dashboard</title>
   <link rel="stylesheet" href="styles.css"/>
 </head>
 
 <body>
   <div class="bg"></div>
 
-  <!-- HEADER -->
+  <!-- TOP BAR -->
   <header class="topbar">
     <div class="logo">GAVABA</div>
-    <div class="live">🔴 LIVE</div>
-    <button class="btn">Ver directo</button>
+    <div class="status">🔴 LIVE SOLOQ</div>
+    <button class="btn">Ver stream</button>
   </header>
 
-  <!-- HERO STREAM -->
+  <!-- HERO -->
   <section class="hero">
-    <div class="stream-main glass">
+    <div class="main-stream glass">
       🎥 STREAM PRINCIPAL
     </div>
 
-    <div class="stream-side">
+    <div class="side-panel">
       <div class="glass small">📺 Cámara</div>
-      <div class="glass small">🎮 Secundario</div>
-    </div>
-  </section>
-
-  <!-- POKÉMON OVERLAY -->
-  <section class="pokemons">
-    <h2>🔥 Equipo Pokémon</h2>
-    <div class="grid">
-      <div class="card glass">Pokémon 1</div>
-      <div class="card glass">Pokémon 2</div>
-      <div class="card glass">Pokémon 3</div>
-      <div class="card glass">Pokémon 4</div>
-      <div class="card glass">Pokémon 5</div>
-      <div class="card glass">Pokémon 6</div>
+      <div class="glass small">🎮 Overlay</div>
     </div>
   </section>
 
   <!-- STATS -->
   <section class="stats">
-    <div class="glass stat">🏆 Wins: 12</div>
-    <div class="glass stat">💀 Losses: 4</div>
-    <div class="glass stat">🔥 Win Streak: 5</div>
-    <div class="glass stat">📊 Rank: Master</div>
+    <div class="glass stat">
+      <h3>Wins</h3>
+      <p>12</p>
+    </div>
+
+    <div class="glass stat">
+      <h3>Losses</h3>
+      <p>4</p>
+    </div>
+
+    <div class="glass stat">
+      <h3>Winrate</h3>
+      <p>75%</p>
+    </div>
+
+    <div class="glass stat">
+      <h3>Racha</h3>
+      <p>🔥 +5</p>
+    </div>
+  </section>
+
+  <!-- RANKING -->
+  <section class="ranking">
+    <h2>🏆 Ranking de colegas</h2>
+
+    <div class="list">
+
+      <div class="row glass">
+        <span>EL BAIFO <small>#MVP</small></span>
+        <span>+780 LP</span>
+      </div>
+
+      <div class="row glass">
+        <span>elbaifoo <small>#mvp</small></span>
+        <span>+760 LP</span>
+      </div>
+
+      <div class="row glass">
+        <span>Guerra <small>#SFC</small></span>
+        <span>+690 LP</span>
+      </div>
+
+      <div class="row glass">
+        <span>Wensel <small>#777</small></span>
+        <span>+640 LP</span>
+      </div>
+
+      <div class="row glass">
+        <span>Hugo Peña <small>#HPT</small></span>
+        <span>+610 LP</span>
+      </div>
+
+      <div class="row glass">
+        <span>Gabriel Valiente <small>#GGB</small></span>
+        <span>+590 LP</span>
+      </div>
+
+      <div class="row glass">
+        <span>JUNGLE <small>#CAPI</small></span>
+        <span>+520 LP</span>
+      </div>
+
+      <div class="row glass">
+        <span>Poli Sama <small>#091</small></span>
+        <span>+430 LP</span>
+      </div>
+
+      <div class="row glass">
+        <span>PONABE <small>#AKN</small></span>
+        <span>+380 LP</span>
+      </div>
+
+      <div class="row glass">
+        <span>ZzZ <small>#AKN</small></span>
+        <span>+120 LP</span>
+      </div>
+
+    </div>
   </section>
 
   <footer>
-    Made for Gavaba 💙💚
+    Gavaba SoloQ Dashboard 💙💚
   </footer>
 </body>
 </html>
