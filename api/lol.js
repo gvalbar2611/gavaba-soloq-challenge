@@ -1,6 +1,11 @@
 export default async function handler(req, res) {
   const API_KEY = process.env.RIOT_API_KEY;
 
+  // 🔐 comprobación básica
+  if (!API_KEY) {
+    return res.status(500).json({ error: "Falta RIOT_API_KEY en Vercel" });
+  }
+
   const summoners = [
     "Hugo Peña",
     "Gabriel Valiente",
@@ -17,35 +22,45 @@ export default async function handler(req, res) {
     const results = await Promise.all(
       summoners.map(async (name) => {
 
-        const url = `https://euw1.api.riotgames.com/lol/summoner/v4/summoners/by-name/${encodeURIComponent(name)}`;
+        try {
+          const url = `https://euw1.api.riotgames.com/lol/summoner/v4/summoners/by-name/${encodeURIComponent(name)}`;
 
-        const r = await fetch(url, {
-          headers: {
-            "X-Riot-Token": API_KEY
+          const r = await fetch(url, {
+            headers: {
+              "X-Riot-Token": API_KEY
+            }
+          });
+
+          if (!r.ok) {
+            return {
+              name,
+              level: 0
+            };
           }
-        });
 
-        if (!r.ok) {
+          const data = await r.json();
+
+          return {
+            name: data.name,
+            level: data.summonerLevel
+          };
+
+        } catch (err) {
           return {
             name,
             level: 0
           };
         }
 
-        const data = await r.json();
-
-        return {
-          name: data.name,
-          level: data.summonerLevel
-        };
       })
     );
 
-    res.status(200).json(results);
+    return res.status(200).json(results);
 
   } catch (error) {
-    res.status(500).json({
-      error: "Error en API LoL"
+    return res.status(500).json({
+      error: "Error general en API",
+      detail: error.message
     });
   }
 }
