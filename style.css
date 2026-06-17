@@ -7,7 +7,7 @@ body {
   padding: 20px;
 }
 
-/* TITLE */
+/* TITULO */
 h1 {
   text-align: center;
   margin-bottom: 30px;
@@ -50,8 +50,9 @@ button:hover {
   align-items: center;
   padding: 15px;
   border-radius: 10px;
+  position: relative;
+  overflow: hidden;
   background: #161b22;
-  transition: 0.2s;
 }
 
 /* HEADER */
@@ -62,24 +63,60 @@ button:hover {
 }
 
 /* LP */
-.lp {
+.row span:last-child {
   text-align: right;
   font-weight: bold;
   color: #00f5ff;
 }
 
+/* BAR */
+.bar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 4px;
+  width: 100%;
+}
+
+.bar div {
+  height: 4px;
+  background: linear-gradient(90deg, #00f5ff, #00ff88);
+}
+
+/* RANK COLORS */
+.challenger {
+  border-left: 4px solid #ffcc00;
+}
+
+.grandmaster {
+  border-left: 4px solid #ff4d6d;
+}
+
+.master {
+  border-left: 4px solid #9b5de5;
+}
+
+.diamond {
+  border-left: 4px solid #00f5ff;
+}
+
+.platinum {
+  border-left: 4px solid #00ff88;
+}
+
+.gold {
+  border-left: 4px solid #ffd166;
+}
+
+/* SMALL BADGE */
+small {
+  opacity: 0.7;
+  margin-left: 8px;
+}
+
 /* HOVER */
 .row:hover {
   transform: scale(1.01);
+  transition: 0.2s;
   background: #1c2333;
-}
-
-/* ANIMATION EFFECT */
-.row {
-  animation: fadeIn 0.3s ease;
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
 }
