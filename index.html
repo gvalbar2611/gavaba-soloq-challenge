@@ -2,24 +2,27 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Gavaba SoloQ Stream</title>
+  <title>Gavaba SoloQ Challenge</title>
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-  <div class="header">
-    🏆 GAVABA SOLOQ CHALLENGE
+  <div class="title">🏆 GAVABA SOLOQ CHALLENGE</div>
+
+  <div class="topbar">
+    <div class="chip">🔥 Live Ranking</div>
+    <div class="chip">⚡ EUW Server</div>
   </div>
 
-  <div class="grid">
+  <div class="layout">
 
-    <div class="panel">
+    <div class="card">
       <h2>🔥 SoloQ</h2>
       <div id="solo"></div>
     </div>
 
-    <div class="panel">
+    <div class="card">
       <h2>⚡ Flex</h2>
       <div id="flex"></div>
     </div>
@@ -39,26 +42,28 @@ async function loadPlayers() {
 
   data.forEach((p, i) => {
 
-    const isTop = p.top ? "TOP1" : "";
+    const isTop = i === 0;
 
-    const soloRow = document.createElement("div");
-    soloRow.className = "row " + (p.top ? "top1" : "");
-    soloRow.innerHTML = `
-      <span class="rank">${i + 1}</span>
-      <span class="name">${p.name}</span>
-      <span class="lp">${p.solo.rank} ${p.solo.lp} LP ${isTop}</span>
+    // SOLOQ CARD
+    const soloCard = document.createElement("div");
+    soloCard.className = "row " + (isTop ? "top" : "");
+    soloCard.innerHTML = `
+      <div class="rank">#${i + 1}</div>
+      <div class="name">${p.name}</div>
+      <div class="lp">${p.solo.rank} ${p.solo.lp} LP</div>
     `;
 
-    const flexRow = document.createElement("div");
-    flexRow.className = "row";
-    flexRow.innerHTML = `
-      <span class="rank">${i + 1}</span>
-      <span class="name">${p.name}</span>
-      <span class="lp">${p.flex.rank} ${p.flex.lp} LP</span>
+    // FLEX CARD
+    const flexCard = document.createElement("div");
+    flexCard.className = "row";
+    flexCard.innerHTML = `
+      <div class="rank">#${i + 1}</div>
+      <div class="name">${p.name}</div>
+      <div class="lp">${p.flex.rank} ${p.flex.lp} LP</div>
     `;
 
-    solo.appendChild(soloRow);
-    flex.appendChild(flexRow);
+    solo.appendChild(soloCard);
+    flex.appendChild(flexCard);
   });
 }
 
