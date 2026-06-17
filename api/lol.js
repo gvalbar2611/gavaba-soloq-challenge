@@ -1,23 +1,23 @@
 export default async function handler(req, res) {
   const API_KEY = process.env.RIOT_API_KEY;
 
-  const summoners = [
-    "Hugo Peña#HPT",
-    "Gabriel Valiente#GGB",
-    "EL BAIFO#MVP",
-    "elbaifoo#mvp",
-    "JUNGLE#CAPI",
-    "Wensel#777",
-    "Guerra#SFC",
-    "Poli Sama#091",
-    "PONABE ZzZ#AKN"
+  const players = [
+    { gameName: "Hugo Peña", tagLine: "HPT" },
+    { gameName: "Gabriel Valiente", tagLine: "GGB" },
+    { gameName: "EL BAIFO", tagLine: "MVP" },
+    { gameName: "elbaifoo", tagLine: "mvp" },
+    { gameName: "JUNGLE", tagLine: "CAPI" },
+    { gameName: "Wensel", tagLine: "777" },
+    { gameName: "Guerra", tagLine: "SFC" },
+    { gameName: "Poli Sama", tagLine: "091" },
+    { gameName: "PONABE ZzZ", tagLine: "AKN" }
   ];
 
   try {
     const results = await Promise.all(
-      summoners.map(async (name) => {
+      players.map(async (p) => {
 
-        const url = `https://euw1.api.riotgames.com/lol/summoner/v4/summoners/by-name/${encodeURIComponent(name)}`;
+        const url = `https://europe.api.riotgames.com/riot/account/v1/accounts/by-riot-id/${encodeURIComponent(p.gameName)}/${encodeURIComponent(p.tagLine)}`;
 
         const r = await fetch(url, {
           headers: {
@@ -27,25 +27,25 @@ export default async function handler(req, res) {
 
         if (!r.ok) {
           return {
-            name,
+            name: `${p.gameName}#${p.tagLine}`,
             level: null,
-            error: "not found"
+            error: "account not found"
           };
         }
 
         const data = await r.json();
 
         return {
-          name: data.name,
-          level: data.summonerLevel
+          name: `${p.gameName}#${p.tagLine}`,
+          puuid: data.puuid
         };
       })
     );
 
-    return res.status(200).json(results);
+    res.status(200).json(results);
 
   } catch (error) {
-    return res.status(500).json({
+    res.status(500).json({
       error: "API ERROR",
       detail: error.message
     });
