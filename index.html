@@ -2,19 +2,29 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Gavaba SoloQ Challenge</title>
+  <title>Gavaba SoloQ Stream</title>
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-  <h1>🏆 Gavaba SoloQ Challenge</h1>
+  <div class="header">
+    🏆 GAVABA SOLOQ CHALLENGE
+  </div>
 
-  <h2>🔥 SoloQ</h2>
-  <div class="board" id="solo"></div>
+  <div class="grid">
 
-  <h2>⚡ Flex</h2>
-  <div class="board" id="flex"></div>
+    <div class="panel">
+      <h2>🔥 SoloQ</h2>
+      <div id="solo"></div>
+    </div>
+
+    <div class="panel">
+      <h2>⚡ Flex</h2>
+      <div id="flex"></div>
+    </div>
+
+  </div>
 
 <script>
 async function loadPlayers() {
@@ -29,20 +39,22 @@ async function loadPlayers() {
 
   data.forEach((p, i) => {
 
+    const isTop = p.top ? "TOP1" : "";
+
     const soloRow = document.createElement("div");
-    soloRow.className = "row";
+    soloRow.className = "row " + (p.top ? "top1" : "");
     soloRow.innerHTML = `
-      <span>${i + 1}</span>
-      <span>${p.name}</span>
-      <span>${p.solo.rank} ${p.solo.lp} LP</span>
+      <span class="rank">${i + 1}</span>
+      <span class="name">${p.name}</span>
+      <span class="lp">${p.solo.rank} ${p.solo.lp} LP ${isTop}</span>
     `;
 
     const flexRow = document.createElement("div");
     flexRow.className = "row";
     flexRow.innerHTML = `
-      <span>${i + 1}</span>
-      <span>${p.name}</span>
-      <span>${p.flex.rank} ${p.flex.lp} LP</span>
+      <span class="rank">${i + 1}</span>
+      <span class="name">${p.name}</span>
+      <span class="lp">${p.flex.rank} ${p.flex.lp} LP</span>
     `;
 
     solo.appendChild(soloRow);
