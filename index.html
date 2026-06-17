@@ -8,23 +8,23 @@
 
 <body>
 
-  <div class="title">🏆 GAVABA SOLOQ CHALLENGE</div>
-
-  <div class="topbar">
-    <div class="chip">🔥 Live Ranking</div>
-    <div class="chip">⚡ EUW Server</div>
+  <div class="header">
+    <div class="logo">🏆 SOLOQ CHALLENGE</div>
+    <div class="subtitle">Gavaba Edition</div>
   </div>
 
-  <div class="layout">
+  <div class="container">
 
-    <div class="card">
-      <h2>🔥 SoloQ</h2>
-      <div id="solo"></div>
+    <!-- SOLOQ -->
+    <div class="panel">
+      <div class="panel-title">🔥 SoloQ</div>
+      <div class="table" id="solo"></div>
     </div>
 
-    <div class="card">
-      <h2>⚡ Flex</h2>
-      <div id="flex"></div>
+    <!-- FLEX -->
+    <div class="panel">
+      <div class="panel-title">⚡ Flex</div>
+      <div class="table" id="flex"></div>
     </div>
 
   </div>
@@ -42,28 +42,28 @@ async function loadPlayers() {
 
   data.forEach((p, i) => {
 
-    const isTop = i === 0;
+    const top = i === 0 ? "top1" : "";
 
-    // SOLOQ CARD
-    const soloCard = document.createElement("div");
-    soloCard.className = "row " + (isTop ? "top" : "");
-    soloCard.innerHTML = `
-      <div class="rank">#${i + 1}</div>
+    // SOLOQ ROW
+    const soloRow = document.createElement("div");
+    soloRow.className = `row ${top}`;
+    soloRow.innerHTML = `
+      <div class="pos">#${i + 1}</div>
       <div class="name">${p.name}</div>
       <div class="lp">${p.solo.rank} ${p.solo.lp} LP</div>
     `;
 
-    // FLEX CARD
-    const flexCard = document.createElement("div");
-    flexCard.className = "row";
-    flexCard.innerHTML = `
-      <div class="rank">#${i + 1}</div>
+    // FLEX ROW
+    const flexRow = document.createElement("div");
+    flexRow.className = `row`;
+    flexRow.innerHTML = `
+      <div class="pos">#${i + 1}</div>
       <div class="name">${p.name}</div>
       <div class="lp">${p.flex.rank} ${p.flex.lp} LP</div>
     `;
 
-    solo.appendChild(soloCard);
-    flex.appendChild(flexCard);
+    solo.appendChild(soloRow);
+    flex.appendChild(flexRow);
   });
 }
 
