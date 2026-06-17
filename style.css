@@ -2,121 +2,33 @@ body {
   background: #0b0f19;
   color: white;
   font-family: Arial, sans-serif;
-  max-width: 1200px;
+  max-width: 1000px;
   margin: auto;
   padding: 20px;
 }
 
-/* TITULO */
 h1 {
   text-align: center;
-  margin-bottom: 30px;
   color: #00f5ff;
-  letter-spacing: 2px;
-}
-
-/* TABS */
-.tabs {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
   margin-bottom: 20px;
 }
 
-button {
-  background: #1c2333;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 8px;
-  cursor: pointer;
-}
-
-button:hover {
-  background: #29344d;
-}
-
-/* BOARD */
 .board {
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
 
-/* ROW */
 .row {
   display: grid;
-  grid-template-columns: 60px 1fr 80px;
-  align-items: center;
+  grid-template-columns: 60px 1fr 100px;
   padding: 15px;
-  border-radius: 10px;
-  position: relative;
-  overflow: hidden;
   background: #161b22;
+  border-radius: 10px;
 }
 
-/* HEADER */
 .head {
   background: #21262d;
   color: #00f5ff;
   font-weight: bold;
-}
-
-/* LP */
-.row span:last-child {
-  text-align: right;
-  font-weight: bold;
-  color: #00f5ff;
-}
-
-/* BAR */
-.bar {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  height: 4px;
-  width: 100%;
-}
-
-.bar div {
-  height: 4px;
-  background: linear-gradient(90deg, #00f5ff, #00ff88);
-}
-
-/* RANK COLORS */
-.challenger {
-  border-left: 4px solid #ffcc00;
-}
-
-.grandmaster {
-  border-left: 4px solid #ff4d6d;
-}
-
-.master {
-  border-left: 4px solid #9b5de5;
-}
-
-.diamond {
-  border-left: 4px solid #00f5ff;
-}
-
-.platinum {
-  border-left: 4px solid #00ff88;
-}
-
-.gold {
-  border-left: 4px solid #ffd166;
-}
-
-/* SMALL BADGE */
-small {
-  opacity: 0.7;
-  margin-left: 8px;
-}
-
-/* HOVER */
-.row:hover {
-  transform: scale(1.01);
-  transition: 0.2s;
-  background: #1c2333;
 }
