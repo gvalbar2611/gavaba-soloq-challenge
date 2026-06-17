@@ -24,37 +24,24 @@
 
 <script>
 async function loadPlayers() {
-  try {
-    const res = await fetch("/api/lol");
-    const data = await res.json();
+  const res = await fetch("/api/lol");
+  const data = await res.json();
 
-    console.log("API DATA:", data); // 👈 importante para debug
+  const container = document.getElementById("players");
+  container.innerHTML = "";
 
-    const container = document.getElementById("players");
+  data.forEach((p, i) => {
+    const row = document.createElement("div");
+    row.className = "row";
 
-    if (!container) {
-      console.error("NO EXISTE #players");
-      return;
-    }
+    row.innerHTML = `
+      <span>${i + 1}</span>
+      <span>${p.name}</span>
+      <span>${p.rank} ${p.lp} LP</span>
+    `;
 
-    container.innerHTML = "";
-
-    data.forEach((p, i) => {
-      const row = document.createElement("div");
-      row.className = "row";
-
-      row.innerHTML = `
-        <span>${i + 1}</span>
-        <span>${p.name ?? "unknown"}</span>
-        <span>${p.level ?? 0}</span>
-      `;
-
-      container.appendChild(row);
-    });
-
-  } catch (err) {
-    console.error("ERROR FETCH:", err);
-  }
+    container.appendChild(row);
+  });
 }
 
 loadPlayers();
