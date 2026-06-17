@@ -31,13 +31,20 @@ async function loadPlayers() {
   container.innerHTML = "";
 
   data.forEach((p, i) => {
+
+    const rankClass = `rank-${(p.rank || "UNRANKED").toUpperCase()}`;
+
     const row = document.createElement("div");
     row.className = "row";
 
     row.innerHTML = `
       <span>${i + 1}</span>
       <span>${p.name}</span>
-      <span>${p.rank} ${p.lp} LP</span>
+      <span>
+        <span class="rank-badge ${rankClass}">
+          ${p.rank || "UNRANKED"} ${p.lp || 0} LP
+        </span>
+      </span>
     `;
 
     container.appendChild(row);
