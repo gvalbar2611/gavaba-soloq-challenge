@@ -53,6 +53,18 @@ function rankValue(rank, division) {
   return (tiers[rank] * 10) + (div[division] || 0);
 }
 
+const opggLinks = {
+  "Hugo Peña#HPT": "https://op.gg/es/lol/summoners/euw/Hugo%20Pe%C3%B1a-HPT",
+  "PONABE ZzZ#AKN": "https://op.gg/es/lol/summoners/euw/PONABE%20ZzZ-AKN",
+  "elbaifoo#MVP": "https://op.gg/es/lol/summoners/euw/elbaifoo-mvp",
+  "Guerra#SFC": "https://op.gg/es/lol/summoners/euw/Guerra-SFC",
+  "JUNGLE#CAPI": "https://op.gg/es/lol/summoners/euw/JUNGLE-CAPI",
+  "Gabriel Valiente#GGB": "https://op.gg/es/lol/summoners/euw/Gabriel%20Valiente-GGB",
+  "Poli Sama#091": "https://op.gg/es/lol/summoners/euw/Poli%20Sama-091",
+  "Wensel#777": "https://op.gg/es/lol/summoners/euw/Wensel-777",
+  "EL BAIFO#MVP": "https://op.gg/es/lol/summoners/euw/EL%20BAIFO-MVP"
+};
+
 async function loadPlayers() {
   const res = await fetch("/api/lol");
   const data = await res.json();
@@ -80,7 +92,14 @@ async function loadPlayers() {
 
     row.innerHTML = `
       <div class="pos">#${i + 1}</div>
-      <div class="name">${p.name}</div>
+      <div class="name">
+        <a href="${opggLinks[p.name] || '#'}"
+           target="_blank"
+           rel="noopener noreferrer"
+           style="color:inherit;text-decoration:none;">
+          ${p.name}
+        </a>
+      </div>
       <div class="lp">
         <span class="rank ${p.solo.rank}">
           ${p.solo.rank} ${p.solo.division}
@@ -99,7 +118,14 @@ async function loadPlayers() {
 
     row.innerHTML = `
       <div class="pos">#${i + 1}</div>
-      <div class="name">${p.name}</div>
+      <div class="name">
+        <a href="${opggLinks[p.name] || '#'}"
+           target="_blank"
+           rel="noopener noreferrer"
+           style="color:inherit;text-decoration:none;">
+          ${p.name}
+        </a>
+      </div>
       <div class="lp">
         <span class="rank ${p.flex.rank}">
           ${p.flex.rank} ${p.flex.division}
