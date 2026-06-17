@@ -27,7 +27,6 @@
   </div>
 
 <script>
-// 🧠 ranking real de LoL
 function rankValue(rank, division) {
   const tiers = {
     "CHALLENGER": 10,
@@ -64,19 +63,20 @@ async function loadPlayers() {
   solo.innerHTML = "";
   flex.innerHTML = "";
 
-  // 🔥 SOLOQ ORDER REAL
   const soloSorted = [...data].sort((a, b) =>
-    rankValue(b.solo.rank, b.solo.division) - rankValue(a.solo.rank, a.solo.division)
+    rankValue(b.solo.rank, b.solo.division) -
+    rankValue(a.solo.rank, a.solo.division)
   );
 
-  // ⚡ FLEX ORDER REAL
   const flexSorted = [...data].sort((a, b) =>
-    rankValue(b.flex.rank, b.flex.division) - rankValue(a.flex.rank, a.flex.division)
+    rankValue(b.flex.rank, b.flex.division) -
+    rankValue(a.flex.rank, a.flex.division)
   );
 
   soloSorted.forEach((p, i) => {
     const row = document.createElement("div");
     row.className = "row " + (i === 0 ? "top1" : "");
+    row.style.animationDelay = `${i * 0.05}s`;
 
     row.innerHTML = `
       <div class="pos">#${i + 1}</div>
@@ -94,6 +94,8 @@ async function loadPlayers() {
 
   flexSorted.forEach((p, i) => {
     const row = document.createElement("div");
+    row.className = "row";
+    row.style.animationDelay = `${i * 0.05}s`;
 
     row.innerHTML = `
       <div class="pos">#${i + 1}</div>
