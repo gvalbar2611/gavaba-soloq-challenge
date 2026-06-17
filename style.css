@@ -1,29 +1,68 @@
 body {
-  background: #0f1117;
+  background: radial-gradient(circle at top, #0b1220, #05070f);
   color: white;
-  font-family: Arial;
-  max-width: 1000px;
+  font-family: Arial, sans-serif;
+  max-width: 1100px;
   margin: auto;
-  padding: 20px;
+  padding: 30px;
 }
 
 h1 {
   text-align: center;
+  font-size: 32px;
+  margin-bottom: 25px;
+  color: #00e5ff;
+  letter-spacing: 1px;
 }
 
 .board {
   margin-top: 20px;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 0 40px rgba(0, 229, 255, 0.15);
 }
 
 .row {
   display: grid;
-  grid-template-columns: 60px 1fr 100px;
-  padding: 12px;
-  background: #161b22;
-  border-bottom: 1px solid #2a2f3a;
+  grid-template-columns: 60px 1fr 200px;
+  padding: 16px;
+  background: rgba(255, 255, 255, 0.04);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  transition: 0.2s;
+  align-items: center;
+}
+
+.row:hover {
+  background: rgba(0, 229, 255, 0.08);
+  transform: scale(1.01);
 }
 
 .head {
-  background: #21262d;
+  background: rgba(0, 229, 255, 0.15);
   font-weight: bold;
+  color: #00e5ff;
 }
+
+#players .row:first-child {
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.rank-badge {
+  padding: 5px 10px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: bold;
+  display: inline-block;
+}
+
+/* colores por rango */
+.rank-IRON { background: #3b3b3b; }
+.rank-BRONZE { background: #8b5a2b; }
+.rank-SILVER { background: #9aa4ad; color: black; }
+.rank-GOLD { background: #d4af37; color: black; }
+.rank-PLATINUM { background: #3bd3c6; color: black; }
+.rank-EMERALD { background: #2ecc71; }
+.rank-DIAMOND { background: #6c7bff; }
+.rank-MASTER { background: #b84dff; }
+.rank-GRANDMASTER { background: #ff4d4d; }
+.rank-CHALLENGER { background: #00e5ff; color: black; }
