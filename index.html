@@ -1,36 +1,57 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <title>Gavaba SoloQ Challenge</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Gavaba - Live Dashboard</title>
+  <link rel="stylesheet" href="styles.css"/>
 </head>
+
 <body>
+  <div class="bg"></div>
 
-  <h1>🏆 Gavaba SoloQ Challenge</h1>
+  <!-- HEADER -->
+  <header class="topbar">
+    <div class="logo">GAVABA</div>
+    <div class="live">🔴 LIVE</div>
+    <button class="btn">Ver directo</button>
+  </header>
 
-  <div class="tabs">
-    <button>SoloQ</button>
-    <button>Flex</button>
-  </div>
+  <!-- HERO STREAM -->
+  <section class="hero">
+    <div class="stream-main glass">
+      🎥 STREAM PRINCIPAL
+    </div>
 
-  <table>
-  <tr>
-    <th>#</th>
-    <th>Jugador</th>
-    <th>LP</th>
-  </tr>
+    <div class="stream-side">
+      <div class="glass small">📺 Cámara</div>
+      <div class="glass small">🎮 Secundario</div>
+    </div>
+  </section>
 
-  <tr><td>1</td><td>Hugo Peña</td><td>0</td></tr>
-  <tr><td>2</td><td>Gabriel Valiente</td><td>0</td></tr>
-  <tr><td>3</td><td>EL BAIFO</td><td>0</td></tr>
-  <tr><td>4</td><td>elbaifoo</td><td>0</td></tr>
-  <tr><td>5</td><td>JUNGLE</td><td>0</td></tr>
-  <tr><td>6</td><td>Wensel</td><td>0</td></tr>
-  <tr><td>7</td><td>Guerra</td><td>0</td></tr>
-  <tr><td>8</td><td>Poli Sama</td><td>0</td></tr>
-  <tr><td>9</td><td>PONABE ZzZ</td><td>0</td></tr>
-</table>
+  <!-- POKÉMON OVERLAY -->
+  <section class="pokemons">
+    <h2>🔥 Equipo Pokémon</h2>
+    <div class="grid">
+      <div class="card glass">Pokémon 1</div>
+      <div class="card glass">Pokémon 2</div>
+      <div class="card glass">Pokémon 3</div>
+      <div class="card glass">Pokémon 4</div>
+      <div class="card glass">Pokémon 5</div>
+      <div class="card glass">Pokémon 6</div>
+    </div>
+  </section>
 
+  <!-- STATS -->
+  <section class="stats">
+    <div class="glass stat">🏆 Wins: 12</div>
+    <div class="glass stat">💀 Losses: 4</div>
+    <div class="glass stat">🔥 Win Streak: 5</div>
+    <div class="glass stat">📊 Rank: Master</div>
+  </section>
+
+  <footer>
+    Made for Gavaba 💙💚
+  </footer>
 </body>
 </html>
