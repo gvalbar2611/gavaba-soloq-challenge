@@ -1,56 +1,133 @@
-body{
-  background:#0f1117;
-  color:white;
-  font-family:Arial,sans-serif;
-  max-width:1200px;
-  margin:auto;
-  padding:20px;
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  color: white;
+  background: #05070f;
+  overflow-x: hidden;
 }
 
-h1{
-  text-align:center;
-  margin-bottom:30px;
+/* BACKGROUND ANIMATION */
+.bg {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at top, #0ff 0%, transparent 40%),
+              radial-gradient(circle at bottom, #0f0 0%, transparent 40%);
+  opacity: 0.15;
+  filter: blur(80px);
+  z-index: -1;
 }
 
-.tabs{
-  display:flex;
-  justify-content:center;
-  gap:10px;
-  margin-bottom:20px;
+/* GLASS EFFECT */
+.glass {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  padding: 20px;
+  transition: 0.3s;
 }
 
-button{
-  background:#1c2333;
-  color:white;
-  border:none;
-  padding:10px 20px;
-  border-radius:8px;
-  cursor:pointer;
+.glass:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 20px rgba(0,255,255,0.3);
 }
 
-button:hover{
-  background:#29344d;
+/* TOP BAR */
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
 }
 
-table{
-  width:100%;
-  border-collapse:collapse;
-  background:#161b22;
-  border-radius:12px;
-  overflow:hidden;
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+  letter-spacing: 2px;
+  color: #00f5ff;
 }
 
-th{
-  background:#21262d;
-  padding:15px;
-  text-align:left;
+.live {
+  color: red;
+  font-weight: bold;
 }
 
-td{
-  padding:15px;
-  border-bottom:1px solid #30363d;
+.btn {
+  background: linear-gradient(90deg, #00f5ff, #00ff88);
+  border: none;
+  padding: 10px 15px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: bold;
 }
 
-tr:hover{
-  background:#1c2333;
+/* HERO */
+.hero {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 20px;
+  padding: 20px;
+}
+
+.stream-main {
+  height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+}
+
+.stream-side {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.small {
+  height: 140px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* POKÉMON */
+.pokemons {
+  padding: 20px;
+}
+
+.pokemons h2 {
+  margin-bottom: 10px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+}
+
+.card {
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* STATS */
+.stats {
+  display: flex;
+  gap: 15px;
+  padding: 20px;
+}
+
+.stat {
+  flex: 1;
+  text-align: center;
+}
+
+/* FOOTER */
+footer {
+  text-align: center;
+  padding: 20px;
+  opacity: 0.6;
 }
