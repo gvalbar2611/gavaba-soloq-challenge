@@ -9,22 +9,19 @@
 <body>
 
   <div class="header">
-    <div class="logo">🏆 SOLOQ CHALLENGE</div>
-    <div class="subtitle">Gavaba Edition</div>
+    🏆 SOLOQ CHALLENGE - GAVABA
   </div>
 
   <div class="container">
 
-    <!-- SOLOQ -->
     <div class="panel">
-      <div class="panel-title">🔥 SoloQ</div>
-      <div class="table" id="solo"></div>
+      <h2>🔥 SoloQ</h2>
+      <div id="solo"></div>
     </div>
 
-    <!-- FLEX -->
     <div class="panel">
-      <div class="panel-title">⚡ Flex</div>
-      <div class="table" id="flex"></div>
+      <h2>⚡ Flex</h2>
+      <div id="flex"></div>
     </div>
 
   </div>
@@ -42,24 +39,30 @@ async function loadPlayers() {
 
   data.forEach((p, i) => {
 
-    const top = i === 0 ? "top1" : "";
-
-    // SOLOQ ROW
     const soloRow = document.createElement("div");
-    soloRow.className = `row ${top}`;
+    soloRow.className = "row " + (i === 0 ? "top1" : "");
     soloRow.innerHTML = `
       <div class="pos">#${i + 1}</div>
       <div class="name">${p.name}</div>
-      <div class="lp">${p.solo.rank} ${p.solo.lp} LP</div>
+      <div class="lp">
+        <span class="rank ${p.solo.rank}">
+          ${p.solo.rank} ${p.solo.division}
+        </span>
+        ${p.solo.lp} LP
+      </div>
     `;
 
-    // FLEX ROW
     const flexRow = document.createElement("div");
-    flexRow.className = `row`;
+    flexRow.className = "row";
     flexRow.innerHTML = `
       <div class="pos">#${i + 1}</div>
       <div class="name">${p.name}</div>
-      <div class="lp">${p.flex.rank} ${p.flex.lp} LP</div>
+      <div class="lp">
+        <span class="rank ${p.flex.rank}">
+          ${p.flex.rank} ${p.flex.division}
+        </span>
+        ${p.flex.lp} LP
+      </div>
     `;
 
     solo.appendChild(soloRow);
