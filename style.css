@@ -1,43 +1,70 @@
 body {
-  background: radial-gradient(circle at top, #0b1220, #05070f);
-  color: white;
+  margin: 0;
+  background: transparent;
   font-family: Arial, sans-serif;
-  max-width: 1100px;
-  margin: auto;
-  padding: 30px;
+  color: white;
 }
 
-h1 {
+.header {
   text-align: center;
-  font-size: 32px;
-  margin-bottom: 20px;
+  font-size: 40px;
+  font-weight: bold;
+  padding: 20px;
   color: #00e5ff;
+  text-shadow: 0 0 20px #00e5ff;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  padding: 20px;
+}
+
+.panel {
+  background: rgba(0,0,0,0.6);
+  border: 1px solid rgba(0,229,255,0.3);
+  border-radius: 12px;
+  padding: 15px;
+  backdrop-filter: blur(10px);
 }
 
 h2 {
-  margin-top: 30px;
   color: #00e5ff;
-}
-
-.board {
-  border-radius: 16px;
-  overflow: hidden;
-  box-shadow: 0 0 40px rgba(0, 229, 255, 0.12);
+  text-align: center;
+  margin-bottom: 10px;
 }
 
 .row {
   display: grid;
-  grid-template-columns: 60px 1fr 200px;
-  padding: 14px;
-  background: rgba(255,255,255,0.04);
+  grid-template-columns: 40px 1fr 140px;
+  padding: 10px;
   border-bottom: 1px solid rgba(255,255,255,0.08);
+  transition: 0.2s;
 }
 
 .row:hover {
-  background: rgba(0, 229, 255, 0.08);
+  background: rgba(0,229,255,0.1);
+  transform: scale(1.02);
 }
 
-.row span:last-child {
+.rank {
   font-weight: bold;
   color: #00e5ff;
+}
+
+.lp {
+  text-align: right;
+  font-weight: bold;
+}
+
+.top1 {
+  background: linear-gradient(90deg, rgba(0,229,255,0.2), transparent);
+  box-shadow: 0 0 20px rgba(0,229,255,0.4);
+  animation: glow 1.5s infinite alternate;
+}
+
+@keyframes glow {
+  from { box-shadow: 0 0 10px rgba(0,229,255,0.3); }
+  to { box-shadow: 0 0 25px rgba(0,229,255,0.8); }
 }
