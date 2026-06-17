@@ -37,11 +37,19 @@ async function loadPlayers() {
   solo.innerHTML = "";
   flex.innerHTML = "";
 
-  data.forEach((p, i) => {
+  // 🔥 ORDEN SOLOQ
+  const soloSorted = [...data].sort((a, b) => b.solo.lp - a.solo.lp);
 
-    const soloRow = document.createElement("div");
-    soloRow.className = "row " + (i === 0 ? "top1" : "");
-    soloRow.innerHTML = `
+  // ⚡ ORDEN FLEX (INDEPENDIENTE)
+  const flexSorted = [...data].sort((a, b) => b.flex.lp - a.flex.lp);
+
+  // SOLOQ TABLE
+  soloSorted.forEach((p, i) => {
+
+    const row = document.createElement("div");
+    row.className = "row " + (i === 0 ? "top1" : "");
+
+    row.innerHTML = `
       <div class="pos">#${i + 1}</div>
       <div class="name">${p.name}</div>
       <div class="lp">
@@ -52,9 +60,16 @@ async function loadPlayers() {
       </div>
     `;
 
-    const flexRow = document.createElement("div");
-    flexRow.className = "row";
-    flexRow.innerHTML = `
+    solo.appendChild(row);
+  });
+
+  // FLEX TABLE
+  flexSorted.forEach((p, i) => {
+
+    const row = document.createElement("div");
+    row.className = "row";
+
+    row.innerHTML = `
       <div class="pos">#${i + 1}</div>
       <div class="name">${p.name}</div>
       <div class="lp">
@@ -65,8 +80,7 @@ async function loadPlayers() {
       </div>
     `;
 
-    solo.appendChild(soloRow);
-    flex.appendChild(flexRow);
+    flex.appendChild(row);
   });
 }
 
