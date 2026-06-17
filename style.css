@@ -1,7 +1,7 @@
 body {
-  background: #0b0f19;
+  background: #0f1117;
   color: white;
-  font-family: Arial, sans-serif;
+  font-family: Arial;
   max-width: 1000px;
   margin: auto;
   padding: 20px;
@@ -9,26 +9,21 @@ body {
 
 h1 {
   text-align: center;
-  color: #00f5ff;
-  margin-bottom: 20px;
 }
 
 .board {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
+  margin-top: 20px;
 }
 
 .row {
   display: grid;
   grid-template-columns: 60px 1fr 100px;
-  padding: 15px;
+  padding: 12px;
   background: #161b22;
-  border-radius: 10px;
+  border-bottom: 1px solid #2a2f3a;
 }
 
 .head {
   background: #21262d;
-  color: #00f5ff;
   font-weight: bold;
 }
