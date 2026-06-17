@@ -1,29 +1,18 @@
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  background: #0b0f19;
+  background: radial-gradient(circle at top, #0b1220, #05070f);
   color: white;
 }
 
-/* HEADER */
 .header {
   text-align: center;
   padding: 25px;
-  border-bottom: 1px solid rgba(255,255,255,0.08);
-}
-
-.logo {
-  font-size: 28px;
+  font-size: 30px;
   font-weight: bold;
   color: #00e5ff;
 }
 
-.subtitle {
-  font-size: 12px;
-  opacity: 0.6;
-}
-
-/* CONTAINER */
 .container {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -33,35 +22,23 @@ body {
   margin: auto;
 }
 
-/* PANELS */
 .panel {
-  background: #0f1624;
-  border: 1px solid rgba(255,255,255,0.06);
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.08);
   border-radius: 12px;
-  overflow: hidden;
+  padding: 10px;
 }
 
-.panel-title {
-  padding: 12px;
+h2 {
   text-align: center;
-  font-weight: bold;
-  background: rgba(0,229,255,0.08);
   color: #00e5ff;
 }
 
-/* TABLE */
-.table {
-  display: flex;
-  flex-direction: column;
-}
-
-/* ROW */
 .row {
   display: grid;
-  grid-template-columns: 60px 1fr 160px;
+  grid-template-columns: 60px 1fr 220px;
   padding: 12px;
   border-bottom: 1px solid rgba(255,255,255,0.06);
-  transition: 0.15s;
 }
 
 .row:hover {
@@ -79,12 +56,28 @@ body {
 
 .lp {
   text-align: right;
-  font-weight: bold;
-  opacity: 0.9;
 }
 
-/* TOP 1 */
+/* RANK COLORS */
+.rank {
+  padding: 3px 8px;
+  border-radius: 6px;
+  font-size: 12px;
+  margin-right: 6px;
+  font-weight: bold;
+}
+
+.IRON { background:#4b4b4b; }
+.BRONZE { background:#8b5a2b; }
+.SILVER { background:#a0a7b3; color:black; }
+.GOLD { background:#d4af37; color:black; }
+.PLATINUM { background:#3bd3c6; color:black; }
+.EMERALD { background:#2ecc71; }
+.DIAMOND { background:#6c7bff; }
+.MASTER { background:#b84dff; }
+.GRANDMASTER { background:#ff4d4d; }
+.CHALLENGER { background:#00e5ff; color:black; }
+
 .top1 {
   background: linear-gradient(90deg, rgba(0,229,255,0.15), transparent);
-  border-left: 3px solid #00e5ff;
 }
