@@ -1,5 +1,5 @@
 body {
-  background: #0f1117;
+  background: #0b0f19;
   color: white;
   font-family: Arial, sans-serif;
   max-width: 1200px;
@@ -30,12 +30,10 @@ button {
   padding: 10px 20px;
   border-radius: 8px;
   cursor: pointer;
-  transition: 0.2s;
 }
 
 button:hover {
   background: #29344d;
-  transform: scale(1.05);
 }
 
 /* BOARD */
@@ -45,19 +43,19 @@ button:hover {
   gap: 10px;
 }
 
-/* ROWS */
+/* ROW */
 .row {
   display: grid;
   grid-template-columns: 60px 1fr 80px;
   align-items: center;
-  background: #161b22;
   padding: 15px;
   border-radius: 10px;
   position: relative;
   overflow: hidden;
+  background: #161b22;
 }
 
-/* HEADER ROW */
+/* HEADER */
 .head {
   background: #21262d;
   color: #00f5ff;
@@ -65,7 +63,7 @@ button:hover {
 }
 
 /* LP */
-.lp {
+.row span:last-child {
   text-align: right;
   font-weight: bold;
   color: #00f5ff;
@@ -78,18 +76,47 @@ button:hover {
   left: 0;
   height: 4px;
   width: 100%;
-  background: transparent;
 }
 
 .bar div {
   height: 4px;
   background: linear-gradient(90deg, #00f5ff, #00ff88);
-  border-radius: 10px;
 }
 
-/* HOVER EFFECT */
+/* RANK COLORS */
+.challenger {
+  border-left: 4px solid #ffcc00;
+}
+
+.grandmaster {
+  border-left: 4px solid #ff4d6d;
+}
+
+.master {
+  border-left: 4px solid #9b5de5;
+}
+
+.diamond {
+  border-left: 4px solid #00f5ff;
+}
+
+.platinum {
+  border-left: 4px solid #00ff88;
+}
+
+.gold {
+  border-left: 4px solid #ffd166;
+}
+
+/* SMALL BADGE */
+small {
+  opacity: 0.7;
+  margin-left: 8px;
+}
+
+/* HOVER */
 .row:hover {
-  background: #1c2333;
   transform: scale(1.01);
   transition: 0.2s;
+  background: #1c2333;
 }
