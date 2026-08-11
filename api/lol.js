@@ -10,7 +10,7 @@ export default async function handler(req, res) {
     { gameName: "Wensel", tagLine: "777" },
     { gameName: "Guerra", tagLine: "SFC" },
     { gameName: "Poli Sama", tagLine: "091" },
-    { gameName: "PONABE ZzZ", tagLine: "AKN" }
+    { gameName: "CocianE", tagLine: "3131" }
   ];
 
   try {
