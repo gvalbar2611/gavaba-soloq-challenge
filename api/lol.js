@@ -4,8 +4,8 @@ export default async function handler(req, res) {
   const players = [
     { gameName: "Hugo Peña", tagLine: "HPT" },
     { gameName: "Gavaba29", tagLine: "Ytube" },
-    { gameName: "EL BAIFO", tagLine: "MVP" },
-    { gameName: "elbaifoo", tagLine: "MVP" },
+    { gameName: "Hermes", tagLine: "MVP" },
+    { gameName: "Caliste", tagLine: "MVP" },
     { gameName: "JUNGLE", tagLine: "CAPI" },
     { gameName: "Wensel", tagLine: "777" },
     { gameName: "Guerra", tagLine: "SFC" },
